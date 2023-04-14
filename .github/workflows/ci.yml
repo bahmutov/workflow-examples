@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Set merged variables
-        run:
+        run: |
           echo "GREETING=${{ github.event.inputs.greeting || github.event.client_payload.greeting || env.greeting }}" >> $GITHUB_ENV
           echo "N=${{ github.event.inputs.n || github.event.client_payload.n || env.n }}" >> $GITHUB_ENV
 
