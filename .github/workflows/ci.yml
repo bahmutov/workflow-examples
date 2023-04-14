@@ -26,4 +26,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Print inputs
-        run: echo ${{ toJSON(github.event.inputs) }}
+        run: echo ${{ toJson(github.event.inputs) }}
