@@ -1,8 +1,11 @@
 name: ci
-# run the workflow every morning
-# or when we trigger the workflow manually
-# or when we dispatch an event
+# run the workflow for different events
+# on every commit
+# and every morning
+# and when we trigger the workflow manually
+# and when we dispatch an event
 on:
+  push:
   workflow_dispatch:
     inputs:
       n:
@@ -23,4 +26,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Print inputs
-        run: echo ${{ github.event.inputs }}
+        run: echo ${{ toJSON(github.event.inputs) }}
