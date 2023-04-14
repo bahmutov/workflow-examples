@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Print inputs
-        run: echo ${{ toJson(github.event.inputs) }}
+        run: echo "${{ toJson(github.event.inputs) }}"
 
       - name: Greeting
-        run: echo ${{ github.event.inputs.greeting }} to you ${{ github.event.inputs.n }} times
+        run: echo "${{ github.event.inputs.greeting }} to you ${{ github.event.inputs.n }} times"
