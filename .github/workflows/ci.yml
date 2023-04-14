@@ -3,6 +3,7 @@ name: ci
 # default values to use
 env:
   greeting: 'Hello'
+  n: 1
 
 # run the workflow for different events
 # on every commit
@@ -21,7 +22,7 @@ on:
       greeting:
         description: A greeting message
         type: string
-        default: ${{ env.greeting }}
+        default: ''
         required: false
   schedule:
     # UTC time
@@ -34,4 +35,4 @@ jobs:
         run: echo "${{ toJson(github.event.inputs) }}"
 
       - name: Greeting
-        run: echo "${{ github.event.inputs.greeting || env.greeting }} to you ${{ github.event.inputs.n }} times"
+        run: echo "${{ github.event.inputs.greeting || env.greeting }} to you ${{ github.event.inputs.n || env.n }} times"
