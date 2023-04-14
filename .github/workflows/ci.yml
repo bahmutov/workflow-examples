@@ -1,0 +1,26 @@
+name: ci
+# run the workflow every morning
+# or when we trigger the workflow manually
+# or when we dispatch an event
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        description: Magic number
+        type: number
+        default: 0
+        required: false
+      greeting:
+        description: A greeting message
+        type: string
+        default: ''
+        required: false
+  schedule:
+    # UTC time
+    - cron: '0 7 * * *'
+jobs:
+  greet:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print inputs
+        run: echo ${{ github.event.inputs }}
