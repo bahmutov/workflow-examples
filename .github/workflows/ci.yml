@@ -33,8 +33,11 @@ jobs:
   greet:
     runs-on: ubuntu-20.04
     steps:
-      - name: Print inputs
+      - name: Print workflow_dispatch inputs
         run: echo "${{ toJson(github.event.inputs) }}"
 
+      - name: Print repository_dispatch inputs
+        run: echo "${{ toJson(github.event.client_payload) }}"
+
       - name: Greeting
-        run: echo "${{ github.event.inputs.greeting || github.event.client_payload.greeting || env.greeting }} to you ${{ github.event.inputs.n || github.event.client_payload.greeting || env.n }} times"
+        run: echo "${{ github.event.inputs.greeting || github.event.client_payload.greeting || env.greeting }} to you ${{ github.event.inputs.n || github.event.client_payload.n || env.n }} times"
