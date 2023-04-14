@@ -27,6 +27,8 @@ on:
   schedule:
     # UTC time
     - cron: '0 7 * * *'
+  repository_dispatch:
+    types: [on-greeting]
 jobs:
   greet:
     runs-on: ubuntu-20.04
@@ -35,4 +37,4 @@ jobs:
         run: echo "${{ toJson(github.event.inputs) }}"
 
       - name: Greeting
-        run: echo "${{ github.event.inputs.greeting || env.greeting }} to you ${{ github.event.inputs.n || env.n }} times"
+        run: echo "${{ github.event.inputs.greeting || github.event.client_payload.greeting || env.greeting }} to you ${{ github.event.inputs.n || github.event.client_payload.greeting || env.n }} times"
