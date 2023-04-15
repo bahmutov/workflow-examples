@@ -33,6 +33,9 @@ jobs:
   greet:
     runs-on: ubuntu-20.04
     steps:
+      - run: echo "event name is:" ${{ github.event_name }}
+      - run: echo "event type is:" ${{ github.event.action }}
+
       - name: Set merged variables
         run: |
           echo "GREETING=${{ github.event.inputs.greeting || github.event.client_payload.greeting || env.greeting }}" >> $GITHUB_ENV
