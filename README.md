@@ -2,4 +2,4 @@
 
 > Trigger GitHub Actions workflow examples
 
-Read [Trying GitHub Actions](https://glebbahmutov.com/blog/trying-github-actions)
+Read the blog posts [Run And Trigger GitHub Workflow](https://glebbahmutov.com/blog/run-and-trigger-github-workflow/) and [Trying GitHub Actions](https://glebbahmutov.com/blog/trying-github-actions)
